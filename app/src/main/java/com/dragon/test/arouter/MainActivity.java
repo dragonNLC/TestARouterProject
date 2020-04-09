@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.dragon.test.arouter2.TestData;
 import com.dragon.test.arouter4.ARouter4Activity;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         btnTo3 = (Button) findViewById(R.id.btn_to_3);
 
         btnTo1.setOnClickListener(v -> {
-            ARouter.getInstance().build("/MyRouter/ARouter2Activity").navigation();
+            ARouter.getInstance().build("/MyRouter/ARouter2Activity")
+                    .withObject("data", new TestData("测试", 20)).navigation();
         });
 
         btnTo2.setOnClickListener(v -> {
